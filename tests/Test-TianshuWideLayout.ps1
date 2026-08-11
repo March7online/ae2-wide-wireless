@@ -220,8 +220,11 @@ if ($mixinSource -notmatch 'ModifyConstant' -or $mixinSource -notmatch '89') {
 
 $patternMixinPath = Join-Path $ProjectRoot 'src/main/java/dev/codex/ae2widewireless/mixin/PatternEncodingPanelMixin.java'
 $patternMixinSource = Get-Content -Raw -Encoding UTF8 -LiteralPath $patternMixinPath
-if ($patternMixinSource -notmatch 'return screen\.getStyle\(\)\.getTerminalStyle\(\)\.getSlotsPerRow\(\) > 9 \? 89 : 8;') {
-    throw 'AE2 original pattern-encoding panel wide offset must remain 89'
+if ($patternMixinSource -match 'return screen\.getStyle\(\)\.getTerminalStyle\(\)\.getSlotsPerRow\(\) > 9 \? 89 : 8;') {
+    throw 'AE2 original pattern-encoding panel must not apply a second wide offset'
+}
+if ($patternMixinSource -notmatch '(?s)ae2Wide\$centerPatternPanelBackground.*?return original;') {
+    throw 'AE2 original pattern-encoding panel must preserve its original internal offset'
 }
 
 $screenSourcePath = Join-Path $ProjectRoot 'src/main/java/dev/codex/ae2widewireless/mixin/MEStorageScreenMixin.java'

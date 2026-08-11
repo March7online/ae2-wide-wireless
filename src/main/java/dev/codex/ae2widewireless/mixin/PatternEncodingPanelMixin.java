@@ -32,7 +32,7 @@ public abstract class PatternEncodingPanelMixin extends EncodingModePanel {
         if (ae2Wide$isWirelessUniversalTerminal()) {
             return 162;
         }
-        return screen.getStyle().getTerminalStyle().getSlotsPerRow() > 9 ? 89 : 8;
+        return original;
     }
 
     @Unique

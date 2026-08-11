@@ -69,6 +69,13 @@ if ($wirelessPatternStyle.includes -notcontains 'universal_terminal.json') {
 }
 
 $sourceRoot = Join-Path $ProjectRoot 'src/main/java/dev/codex/ae2widewireless'
+$patternPanelMixin = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $sourceRoot 'mixin/PatternEncodingPanelMixin.java')
+if ($patternPanelMixin -match 'return screen\.getStyle\(\)\.getTerminalStyle\(\)\.getSlotsPerRow\(\) > 9 \? 89 : 8;') {
+    throw 'Pattern-encoding panel mixin must not apply a second wide-layout offset to normal terminals.'
+}
+if ($patternPanelMixin -notmatch '(?s)ae2Wide\$centerPatternPanelBackground.*?return original;') {
+    throw 'Pattern-encoding panel mixin must preserve the original internal panel offset for normal terminals.'
+}
 $screenMixin = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $sourceRoot 'mixin/MEStorageScreenMixin.java')
 foreach ($requiredToken in @('wideItemFilter', 'wideFluidFilter', 'TerminalWidthState.toggle()', 'isWUT')) {
     if ($screenMixin -notmatch [regex]::Escape($requiredToken)) {
