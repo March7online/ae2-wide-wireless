@@ -155,7 +155,7 @@ foreach ($panelName in $expectedModePanels) {
     if ($null -eq $panel) {
         throw "Wired Tianshu style is missing '$panelName'"
     }
-    Assert-Equal $panel.left 90 "Wired Tianshu '$panelName' is not centered"
+    Assert-Equal $panel.left 81 "Wired Tianshu '$panelName' must account for AE2's internal +8 background offset"
 }
 
 $mixinConfigPath = Join-Path $resourceRoot 'ae2_wide_wireless.mixins.json'

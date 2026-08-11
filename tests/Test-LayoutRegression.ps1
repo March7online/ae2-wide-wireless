@@ -68,6 +68,12 @@ if ($wirelessPatternStyle.includes -notcontains 'universal_terminal.json') {
     throw 'Wireless pattern-encoding style must retain AE2WTLib universal-terminal widgets.'
 }
 
+$widePatternStyle = Read-Json (Join-Path $resourceRoot 'assets/ae2/screens/terminals/pattern_encoding_terminal.json')
+foreach ($panelName in @('modePanel0', 'modePanel1', 'modePanel2', 'modePanel3', 'modePanel4', 'modePanel5')) {
+    Assert-Equal $widePatternStyle.widgets.$panelName.left 81 `
+        "Wide pattern '$panelName' must account for AE2's internal +8 background offset"
+}
+
 $sourceRoot = Join-Path $ProjectRoot 'src/main/java/dev/codex/ae2widewireless'
 $patternPanelMixin = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $sourceRoot 'mixin/PatternEncodingPanelMixin.java')
 if ($patternPanelMixin -match 'return screen\.getStyle\(\)\.getTerminalStyle\(\)\.getSlotsPerRow\(\) > 9 \? 89 : 8;') {
