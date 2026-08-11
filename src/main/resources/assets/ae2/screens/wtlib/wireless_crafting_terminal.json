@@ -1,0 +1,99 @@
+{
+  "$schema": "schema.json",
+  "includes": [
+    "../terminals/crafting_terminal.json",
+    "universal_terminal.json"
+  ],
+  "slots": {
+    "CRAFTING_GRID": {
+      "left": 177,
+      "bottom": 160,
+      "grid": "BREAK_AFTER_3COLS"
+    },
+    "CRAFTING_RESULT": {
+      "left": 246,
+      "bottom": 142
+    },
+    "AE2WTLIB_HELMET": {
+      "left": 89,
+      "bottom": 169
+    },
+    "AE2WTLIB_CHESTPLATE": {
+      "left": 89,
+      "bottom": 151
+    },
+    "AE2WTLIB_LEGGINGS": {
+      "left": 89,
+      "bottom": 133
+    },
+    "AE2WTLIB_BOOTS": {
+      "left": 89,
+      "bottom": 115
+    },
+    "AE2WTLIB_OFFHAND": {
+      "left": 154,
+      "bottom": 115
+    }
+  },
+  "text": {
+    "crafting_grid_title": {
+      "text": {
+        "translate": "gui.ae2.CraftingTerminal"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 181
+      }
+    },
+    "player_inventory_title": {
+      "text": {
+        "translate": "container.inventory"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 95
+      }
+    }
+  },
+  "terminalStyle": {
+    "bottom": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_wct_crafting.png",
+      "textureWidth": 512,
+      "textureHeight": 256,
+      "srcRect": [0, 0, 357, 188]
+    }
+  },
+  "widgets": {
+    "universalModeSwitch": {
+      "left": 3,
+      "top": 1,
+      "width": 22,
+      "height": 22
+    },
+    "clearCraftingGrid": {
+      "left": 232,
+      "bottom": 161
+    },
+    "clearToPlayerInv": {
+      "left": 242,
+      "bottom": 161
+    },
+    "wirelessTerminalSettingsButton": {
+      "left": 155,
+      "bottom": 170
+    },
+    "magnetCardMenuButton": {
+      "left": 155,
+      "bottom": 152
+    },
+    "trashButton": {
+      "left": 155,
+      "bottom": 134
+    },
+    "player": {
+      "$comment": "player is now 5 pixels smaller in left - right direction",
+      "left": 107,
+      "bottom": 168
+    }
+  }
+}

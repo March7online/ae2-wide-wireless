@@ -1,0 +1,207 @@
+{
+  "$schema": "../schema.json",
+  "includes": [
+    "terminal.json",
+    "encoding/crafting.json",
+    "encoding/processing.json",
+    "encoding/smithing_table.json",
+    "encoding/stonecutting.json"
+  ],
+  "helpTopic": "items-blocks-machines/terminals.md#pattern-encoding-terminal-ui",
+  "slots": {
+    "BLANK_PATTERN": {
+      "left": 228,
+      "bottom": 165
+    },
+    "ENCODED_PATTERN": {
+      "left": 228,
+      "bottom": 118
+    },
+    "CRAFTING_GRID": {
+      "left": 96,
+      "bottom": 158,
+      "grid": "BREAK_AFTER_3COLS"
+    },
+    "CRAFTING_RESULT": {
+      "left": 187,
+      "bottom": 140
+    },
+    "PROCESSING_INPUTS": {
+      "left": 105,
+      "bottom": 158,
+      "grid": "BREAK_AFTER_3COLS"
+    },
+    "PROCESSING_OUTPUTS": {
+      "left": 190,
+      "bottom": 158,
+      "grid": "VERTICAL"
+    },
+    "SMITHING_TABLE_TEMPLATE": {
+      "left": 96,
+      "bottom": 140
+    },
+    "SMITHING_TABLE_BASE": {
+      "left": 114,
+      "bottom": 140
+    },
+    "SMITHING_TABLE_ADDITION": {
+      "left": 132,
+      "bottom": 140
+    },
+    "SMITHING_TABLE_RESULT": {
+      "left": 190,
+      "bottom": 140
+    },
+    "STONECUTTING_INPUT": {
+      "left": 96,
+      "bottom": 140
+    }
+  },
+  "text": {
+    "dialog_title": {
+      "text": {
+        "translate": "gui.ae2.Terminal"
+      },
+      "position": {
+        "left": 8,
+        "top": 6
+      }
+    },
+    "crafting_grid_title": {
+      "text": {
+        "translate": "gui.ae2.PatternEncoding"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 177
+      }
+    }
+  },
+  "terminalStyle": {
+    "header": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_pattern.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 0, 357, 17]
+    },
+    "firstRow": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_pattern.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 17, 357, 18]
+    },
+    "row": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_pattern.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 35, 357, 18]
+    },
+    "lastRow": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_pattern.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 53, 357, 18]
+    },
+    "bottom": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_pattern.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 71, 357, 180]
+    }
+  },
+  "widgets": {
+    "universalModeSwitch": {
+      "left": 3,
+      "top": 1,
+      "width": 22,
+      "height": 22
+    },
+    "universalPlayer": {
+      "left": 3,
+      "top": 1
+    },
+    "universalSettings": {
+      "left": 28,
+      "top": 1,
+      "width": 16,
+      "height": 16
+    },
+    "modeTabButton0": {
+      "left": 254,
+      "bottom": 174,
+      "width": 22,
+      "height": 22
+    },
+    "modeTabButton1": {
+      "left": 254,
+      "bottom": 153,
+      "width": 22,
+      "height": 22
+    },
+    "modeTabButton2": {
+      "left": 254,
+      "bottom": 132,
+      "width": 22,
+      "height": 22
+    },
+    "modeTabButton3": {
+      "left": 254,
+      "bottom": 111,
+      "width": 22,
+      "height": 22
+    },
+    "modePanel0": {
+      "left": 90,
+      "bottom": 166
+    },
+    "modePanel1": {
+      "left": 90,
+      "bottom": 166
+    },
+    "modePanel2": {
+      "left": 90,
+      "bottom": 166
+    },
+    "modePanel3": {
+      "left": 90,
+      "bottom": 166
+    },
+    "modePanel4": {
+      "left": 90,
+      "bottom": 166
+    },
+    "modePanel5": {
+      "left": 90,
+      "bottom": 166
+    },
+    "encodePattern": {
+      "left": 228,
+      "bottom": 145
+    },
+    "craftingClearPattern": {
+      "left": 151,
+      "bottom": 159
+    },
+    "craftingSubstitutions": {
+      "left": 161,
+      "bottom": 159
+    },
+    "craftingFluidSubstitutions": {
+      "left": 171,
+      "bottom": 159
+    },
+    "processingPatternModeScrollbar": {
+      "left": 96,
+      "bottom": 158,
+      "height": 52
+    },
+    "smithingTableClearPattern": {
+      "left": 95,
+      "bottom": 151
+    },
+    "smithingTableSubstitutions": {
+      "left": 105,
+      "bottom": 151
+    },
+    "stonecuttingPatternModeScrollbar": {
+      "left": 198,
+      "bottom": 154,
+      "height": 44
+    }
+  }
+}

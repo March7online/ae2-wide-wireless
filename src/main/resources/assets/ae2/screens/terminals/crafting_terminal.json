@@ -1,0 +1,73 @@
+{
+  "$schema": "../schema.json",
+  "includes": ["terminal.json"],
+  "helpTopic": "items-blocks-machines/terminals.md#crafting-terminal-ui",
+  "slots": {
+    "CRAFTING_GRID": {
+      "left": 107,
+      "bottom": 158,
+      "grid": "BREAK_AFTER_3COLS"
+    },
+    "CRAFTING_RESULT": {
+      "left": 215,
+      "bottom": 140
+    }
+  },
+  "text": {
+    "dialog_title": {
+      "text": {
+        "translate": "gui.ae2.Terminal"
+      },
+      "position": {
+        "left": 8,
+        "top": 6
+      }
+    },
+    "crafting_grid_title": {
+      "text": {
+        "translate": "gui.ae2.CraftingTerminal"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 177
+      }
+    }
+  },
+  "terminalStyle": {
+    "header": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_crafting.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 0, 357, 17]
+    },
+    "firstRow": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_crafting.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 17, 357, 18]
+    },
+    "row": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_crafting.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 35, 357, 18]
+    },
+    "lastRow": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_crafting.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 53, 357, 18]
+    },
+    "bottom": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_crafting.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 71, 357, 184]
+    }
+  },
+  "widgets": {
+    "clearCraftingGrid": {
+      "left": 162,
+      "bottom": 159
+    },
+    "clearToPlayerInv": {
+      "left": 172,
+      "bottom": 159
+    }
+  }
+}

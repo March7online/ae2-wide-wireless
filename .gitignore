@@ -1,0 +1,15 @@
+.gradle/
+.gradle-user-home/
+build/
+/META-INF/
+
+*.class
+*.log
+*.tmp
+
+.idea/
+.vscode/
+*.iml
+
+run/
+runs/

@@ -1,0 +1,7 @@
+{
+  "$schema": "../../wtlib/schema.json",
+  "includes": [
+    "pattern_encoding_terminal.json",
+    "../../wtlib/universal_terminal.json"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "../../schema.json",
+  "slots": {
+    "SMITHING_TABLE_TEMPLATE": { "left": 96, "bottom": 140 },
+    "SMITHING_TABLE_BASE": { "left": 114, "bottom": 140 },
+    "SMITHING_TABLE_ADDITION": { "left": 132, "bottom": 140 },
+    "SMITHING_TABLE_RESULT": { "left": 190, "bottom": 140 }
+  },
+  "widgets": {
+    "smithingTableSubstitutions": { "left": 105, "bottom": 151 },
+    "smithingTableClearPattern": { "left": 95, "bottom": 151 }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "../schema.json",
+  "includes": [
+    "../common/common.json",
+    "../common/player_inventory.json",
+    "../common/terminal_toolbox.json"
+  ],
+  "terminalStyle": {
+    "slotsPerRow": 18,
+    "header": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_terminal.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 0, 357, 17]
+    },
+    "firstRow": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_terminal.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 17, 357, 18]
+    },
+    "row": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_terminal.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 35, 357, 18]
+    },
+    "lastRow": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_terminal.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 53, 357, 18]
+    },
+    "bottom": {
+      "texture": "ae2_wide_wireless:textures/gui/wide_terminal.png",
+      "textureWidth": 512, "textureHeight": 256,
+      "srcRect": [0, 71, 357, 99]
+    }
+  },
+  "slots": {
+    "PLAYER_INVENTORY": {
+      "left": 89,
+      "bottom": 84,
+      "grid": "BREAK_AFTER_9COLS"
+    },
+    "PLAYER_HOTBAR": {
+      "left": 89,
+      "bottom": 26,
+      "grid": "HORIZONTAL"
+    }
+  },
+  "text": {
+    "player_inventory_title": {
+      "text": {
+        "translate": "container.inventory"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 95
+      }
+    },
+    "entriesShown": {
+      "color": "DEFAULT_TEXT_COLOR",
+      "align": "RIGHT",
+      "scale": 0.6,
+      "position": {
+        "right": 26,
+        "top": 8
+      }
+    }
+  },
+  "widgets": {
+    "scrollbar": {
+      "left": 337,
+      "top": 18
+    },
+    "craftingStatus": {
+      "left": 333,
+      "top": -5,
+      "hideEdge": false,
+      "width": 20,
+      "height": 20
+    },
+    "viewCells": {
+      "right": 800,
+      "top": 0
+    },
+    "search": {
+      "left": 241,
+      "top": 4,
+      "width": 90,
+      "height": 12
+    },
+    "wideItemFilter": {
+      "left": 79, "top": 4, "width": 22, "height": 12
+    },
+    "wideFluidFilter": {
+      "left": 104, "top": 4, "width": 22, "height": 12
+    }
+  }
+}
