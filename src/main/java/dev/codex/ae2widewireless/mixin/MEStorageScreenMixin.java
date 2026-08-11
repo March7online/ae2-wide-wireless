@@ -67,8 +67,8 @@ public abstract class MEStorageScreenMixin extends AEBaseScreen<MEStorageMenu> {
                 AEKeyType.fluids());
         widgets.add("wideFluidFilter", ae2Wide$fluidFilterButton);
 
-        // The rewritten universal terminal keeps direct item/fluid filtering,
-        // but its fixed dual workspace must not receive a width switch.
+        // AE2WTLib's native universal mode keeps direct item/fluid filtering,
+        // but it must not receive this mod's width switch.
         if (ae2Wide$hasFixedWidth()) {
             return;
         }

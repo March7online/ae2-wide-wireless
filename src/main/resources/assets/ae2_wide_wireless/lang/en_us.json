@@ -1,15 +1,7 @@
 {
-  "ae2_wide_wireless.terminal_selector.wireless_universal": "Wireless Universal Terminal",
   "gui.ae2_wide_wireless.item_filter": "Show items only",
   "gui.ae2_wide_wireless.item_filter.hint": "Click again to show all key types",
   "gui.ae2_wide_wireless.fluid_filter": "Show fluids only",
   "gui.ae2_wide_wireless.fluid_filter.hint": "Click again to show all key types",
-  "gui.ae2_wide_wireless.width_toggle": "Toggle terminal width",
-  "gui.ae2_wide_wireless.jei_target": "JEI recipe target",
-  "gui.ae2_wide_wireless.jei_target.manual": "Current: crafting area (pull ingredients from the ME network/inventory)",
-  "gui.ae2_wide_wireless.jei_target.pattern": "Current: pattern encoding area",
-  "gui.ae2_wide_wireless.jei_target.hint": "Click to switch the recipe destination",
-  "gui.ae2_wide_wireless.jei_target.manual.short": "C",
-  "gui.ae2_wide_wireless.jei_target.pattern.short": "P",
-  "gui.ae2_wide_wireless.jei_target.manual_only_crafting": "The crafting area only accepts 3x3 crafting recipes; select the pattern area instead"
+  "gui.ae2_wide_wireless.width_toggle": "Toggle terminal width"
 }

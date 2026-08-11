@@ -2,7 +2,7 @@ package dev.codex.ae2widewireless;
 
 public final class TerminalScreenPolicyTest {
     public static void main(String[] args) {
-        assertFixed("dev.codex.ae2widewireless.client.WideUniversalScreen", false, true);
+        assertFixed("dev.codex.ae2widewireless.client.WideUniversalScreen", false, false);
         assertFixed("de.mari_023.ae2wtlib.wct.WCTScreen", true, true);
         assertFixed("de.mari_023.ae2wtlib.wct.WCTScreen", false, false);
         assertFixed("de.mari_023.ae2wtlib.wet.WETScreen", true, true);

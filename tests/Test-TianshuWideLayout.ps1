@@ -53,6 +53,15 @@ if ($wireless.includes -notcontains 'tianshu_pattern_encoding_terminal.json' -or
 # ae2_wide_wireless/narrow subdirectory at runtime.
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $wtlibJarPath = Join-Path $ProjectRoot 'build/manual-compile-libs-2.1.17b/ae2wtlib-api-19.5.1.jar'
+if (-not (Test-Path -LiteralPath $wtlibJarPath)) {
+    $wtlibCacheRoot = Join-Path $env:USERPROFILE `
+        '.gradle/caches/modules-2/files-2.1/de.mari_023/ae2wtlib_api/19.5.1'
+    $wtlibJarPath = Get-ChildItem -LiteralPath $wtlibCacheRoot -Recurse -Filter '*.jar' -File |
+        Select-Object -First 1 -ExpandProperty FullName
+}
+if (-not $wtlibJarPath -or -not (Test-Path -LiteralPath $wtlibJarPath)) {
+    throw 'AE2WTLib API 19.5.1 JAR is required for the Tianshu style include audit.'
+}
 $wtlibArchive = [System.IO.Compression.ZipFile]::OpenRead($wtlibJarPath)
 try {
     $styleDirectory = Split-Path -Parent $narrowWirelessPath

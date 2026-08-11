@@ -1,15 +1,7 @@
 {
-  "ae2_wide_wireless.terminal_selector.wireless_universal": "无线通用终端",
   "gui.ae2_wide_wireless.item_filter": "\u4ec5\u663e\u793a\u7269\u54c1",
   "gui.ae2_wide_wireless.item_filter.hint": "\u518d\u6b21\u70b9\u51fb\u6062\u590d\u663e\u793a\u5168\u90e8\u7c7b\u578b",
   "gui.ae2_wide_wireless.fluid_filter": "\u4ec5\u663e\u793a\u6d41\u4f53",
   "gui.ae2_wide_wireless.fluid_filter.hint": "\u518d\u6b21\u70b9\u51fb\u6062\u590d\u663e\u793a\u5168\u90e8\u7c7b\u578b",
-  "gui.ae2_wide_wireless.width_toggle": "\u5207\u6362\u7ec8\u7aef\u5bbd\u7a84",
-  "gui.ae2_wide_wireless.jei_target": "JEI \u62c9\u53d6\u76ee\u6807",
-  "gui.ae2_wide_wireless.jei_target.manual": "\u5f53\u524d\uff1a\u5408\u6210\u533a\uff08\u4ece ME \u7f51\u7edc/\u80cc\u5305\u53d6\u51fa\u6750\u6599\uff09",
-  "gui.ae2_wide_wireless.jei_target.pattern": "\u5f53\u524d\uff1a\u6837\u677f\u7f16\u7801\u533a",
-  "gui.ae2_wide_wireless.jei_target.hint": "\u70b9\u51fb\u5207\u6362\u914d\u65b9\u53d1\u9001\u533a\u57df",
-  "gui.ae2_wide_wireless.jei_target.manual.short": "\u5408",
-  "gui.ae2_wide_wireless.jei_target.pattern.short": "\u6837",
-  "gui.ae2_wide_wireless.jei_target.manual_only_crafting": "\u5408\u6210\u533a\u53ea\u80fd\u63a5\u6536 3x3 \u5408\u6210\u914d\u65b9\uff1b\u8bf7\u5207\u6362\u5230\u6837\u677f\u7f16\u7801\u533a"
+  "gui.ae2_wide_wireless.width_toggle": "\u5207\u6362\u7ec8\u7aef\u5bbd\u7a84"
 }

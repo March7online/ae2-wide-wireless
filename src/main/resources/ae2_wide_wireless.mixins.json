@@ -3,15 +3,10 @@
   "minVersion": "0.8",
   "package": "dev.codex.ae2widewireless.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "CraftingTerminalHandlerMixin",
-    "ItemWUTMixin",
-    "SelectTerminalPacketMixin"
-  ],
+  "mixins": [],
   "client": [
     "TianshuEncodingPanelMixin",
     "TianshuInitialStyleMixin",
-    "TerminalSelectionButtonMixin",
     "MEStorageScreenMixin",
     "TianshuPatternEncodingScreenMixin",
     "PatternEncodingPanelMixin",
@@ -19,7 +14,6 @@
     "AEBaseScreenStyleAccessor",
     "MEStorageScreenStyleAccessor",
     "WidgetContainerMixin"
-    ,"Ae2JeiGhostIngredientHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

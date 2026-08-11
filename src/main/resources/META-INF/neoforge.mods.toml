@@ -9,7 +9,7 @@ displayName="${mod_name}"
 authors="Codex"
 displayTest="IGNORE_ALL_VERSION"
 description='''
-Expands supported AE2 terminals and replaces Wireless Universal Terminal's menu with one native dual workspace: manual crafting and pattern encoding remain visible together.
+Client-only / 纯客户端 wide-screen UI extension for supported AE2 and AE2WTLib terminals. Servers do not need this mod.
 '''
 
 [[mixins]]
@@ -20,28 +20,28 @@ modId="neoforge"
 type="required"
 versionRange="${neo_version_range}"
 ordering="NONE"
-side="BOTH"
+side="CLIENT"
 
 [[dependencies.${mod_id}]]
 modId="minecraft"
 type="required"
 versionRange="${minecraft_version_range}"
 ordering="NONE"
-side="BOTH"
+side="CLIENT"
 
 [[dependencies.${mod_id}]]
 modId="ae2"
 type="required"
 versionRange="${ae2_version_range}"
 ordering="AFTER"
-side="BOTH"
+side="CLIENT"
 
 [[dependencies.${mod_id}]]
 modId="ae2wtlib"
 type="required"
 versionRange="[19.5.1]"
 ordering="AFTER"
-side="BOTH"
+side="CLIENT"
 
 [[dependencies.${mod_id}]]
 modId="jei"

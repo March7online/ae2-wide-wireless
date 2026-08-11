@@ -29,21 +29,10 @@ public abstract class PatternEncodingPanelMixin extends EncodingModePanel {
             constant = @Constant(intValue = 8),
             require = 1)
     private int ae2Wide$centerPatternPanelBackground(int original) {
-        if (ae2Wide$isRewrittenUniversalTerminal()) {
-            // Keep the native 124 px pattern panel in the right half of the
-            // permanent dual workspace. Its slots use the same +169 px offset.
-            return 177;
-        }
         if (ae2Wide$isWirelessUniversalTerminal()) {
             return 162;
         }
         return screen.getStyle().getTerminalStyle().getSlotsPerRow() > 9 ? 89 : 8;
-    }
-
-    @Unique
-    private boolean ae2Wide$isRewrittenUniversalTerminal() {
-        return screen.getClass().getName()
-                .equals("dev.codex.ae2widewireless.client.WideUniversalScreen");
     }
 
     @Unique

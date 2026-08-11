@@ -56,12 +56,7 @@ public abstract class EaepPatternScreenMixin extends MEStorageScreen<PatternEnco
                     .toArray(Field[]::new);
         }
 
-        int horizontalOffset;
-        if (ae2Wide$isRewrittenUniversalTerminal()) {
-            horizontalOffset = 169;
-        } else {
-            horizontalOffset = ae2Wide$isWirelessUniversalTerminal() ? 162 : 81;
-        }
+        int horizontalOffset = ae2Wide$isWirelessUniversalTerminal() ? 162 : 81;
         for (var field : ae2Wide$eaepButtons) {
             try {
                 if (field.get(processingPanel) instanceof AbstractWidget button) {
@@ -84,9 +79,4 @@ public abstract class EaepPatternScreenMixin extends MEStorageScreen<PatternEnco
         }
     }
 
-    @Unique
-    private boolean ae2Wide$isRewrittenUniversalTerminal() {
-        return getClass().getName()
-                .equals("dev.codex.ae2widewireless.client.WideUniversalScreen");
-    }
 }
