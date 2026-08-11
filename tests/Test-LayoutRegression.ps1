@@ -59,6 +59,15 @@ Assert-Equal $baseStyle.widgets.wideFluidFilter.left 104 'Fluid filter position 
 $narrowStyle = Read-Json (Join-Path $resourceRoot 'assets/ae2/screens/ae2_wide_wireless/narrow/base_terminal.json')
 Assert-Equal $narrowStyle.terminalStyle.slotsPerRow 9 'Narrow terminal must expose nine storage columns'
 
+$wirelessPatternPath = Join-Path $resourceRoot 'assets/ae2/screens/wtlib/wireless_pattern_encoding_terminal.json'
+$wirelessPatternStyle = Read-Json $wirelessPatternPath
+if ($wirelessPatternStyle.includes -notcontains '../terminals/pattern_encoding_terminal.json') {
+    throw 'Wireless pattern-encoding style must explicitly inherit the mod wide pattern-encoding style.'
+}
+if ($wirelessPatternStyle.includes -notcontains 'universal_terminal.json') {
+    throw 'Wireless pattern-encoding style must retain AE2WTLib universal-terminal widgets.'
+}
+
 $sourceRoot = Join-Path $ProjectRoot 'src/main/java/dev/codex/ae2widewireless'
 $screenMixin = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $sourceRoot 'mixin/MEStorageScreenMixin.java')
 foreach ($requiredToken in @('wideItemFilter', 'wideFluidFilter', 'TerminalWidthState.toggle()', 'isWUT')) {
