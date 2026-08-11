@@ -10,9 +10,9 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 /**
- * AE2 Lightning Tech's Tianshu panels draw their background from the terminal
- * origin and use a fixed x=8 offset instead of the composite widget position.
- * The wide style moves that background to the centered work area.
+ * AE2 Lightning Tech's Tianshu panels use the same composite-widget bounds as
+ * AE2's native encoding panels. The wide style positions that widget at x=73,
+ * so AE2's native +8 draw offset lands on the centered x=81 work-area origin.
  */
 @Pseudo
 @Mixin(targets = {
@@ -29,6 +29,6 @@ public abstract class TianshuEncodingPanelMixin {
             remap = false)
     private int ae2Wide$centerTianshuPanelBackground(
             int original, GuiGraphics graphics, Rect2i bounds, Point mouse) {
-        return bounds.getWidth() > 195 ? 89 : original;
+        return original;
     }
 }

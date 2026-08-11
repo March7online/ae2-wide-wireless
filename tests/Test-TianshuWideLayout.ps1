@@ -155,7 +155,7 @@ foreach ($panelName in $expectedModePanels) {
     if ($null -eq $panel) {
         throw "Wired Tianshu style is missing '$panelName'"
     }
-    Assert-Equal $panel.left 81 "Wired Tianshu '$panelName' must account for AE2's internal +8 background offset"
+    Assert-Equal $panel.left 73 "Wired Tianshu '$panelName' must place the panel background at the centered x=81 origin"
 }
 
 $mixinConfigPath = Join-Path $resourceRoot 'ae2_wide_wireless.mixins.json'
@@ -214,8 +214,8 @@ foreach ($targetClass in @(
         throw "Tianshu compatibility mixin is missing target '$targetClass'"
     }
 }
-if ($mixinSource -notmatch 'ModifyConstant' -or $mixinSource -notmatch '89') {
-    throw 'Tianshu compatibility mixin must move the custom panel background to x=89 in wide mode'
+if ($mixinSource -notmatch 'ModifyConstant' -or $mixinSource -notmatch 'return original;') {
+    throw 'Tianshu compatibility mixin must preserve AE2''s native +8 panel background offset'
 }
 
 $patternMixinPath = Join-Path $ProjectRoot 'src/main/java/dev/codex/ae2widewireless/mixin/PatternEncodingPanelMixin.java'

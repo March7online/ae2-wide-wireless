@@ -70,8 +70,8 @@ if ($wirelessPatternStyle.includes -notcontains 'universal_terminal.json') {
 
 $widePatternStyle = Read-Json (Join-Path $resourceRoot 'assets/ae2/screens/terminals/pattern_encoding_terminal.json')
 foreach ($panelName in @('modePanel0', 'modePanel1', 'modePanel2', 'modePanel3', 'modePanel4', 'modePanel5')) {
-    Assert-Equal $widePatternStyle.widgets.$panelName.left 81 `
-        "Wide pattern '$panelName' must account for AE2's internal +8 background offset"
+    Assert-Equal $widePatternStyle.widgets.$panelName.left 73 `
+        "Wide pattern '$panelName' must place the panel background at the centered x=81 origin"
 }
 
 $sourceRoot = Join-Path $ProjectRoot 'src/main/java/dev/codex/ae2widewireless'
@@ -81,6 +81,10 @@ if ($patternPanelMixin -match 'return screen\.getStyle\(\)\.getTerminalStyle\(\)
 }
 if ($patternPanelMixin -notmatch '(?s)ae2Wide\$centerPatternPanelBackground.*?return original;') {
     throw 'Pattern-encoding panel mixin must preserve the original internal panel offset for normal terminals.'
+}
+$tianshuPanelMixin = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $sourceRoot 'mixin/TianshuEncodingPanelMixin.java')
+if ($tianshuPanelMixin -match 'return bounds\.getWidth\(\) > 195 \? 89 : original;') {
+    throw 'Tianshu panels must not add a second +89 offset after the wide modePanel position is resolved.'
 }
 $screenMixin = Get-Content -Raw -Encoding UTF8 -LiteralPath (Join-Path $sourceRoot 'mixin/MEStorageScreenMixin.java')
 foreach ($requiredToken in @('wideItemFilter', 'wideFluidFilter', 'TerminalWidthState.toggle()', 'isWUT')) {
