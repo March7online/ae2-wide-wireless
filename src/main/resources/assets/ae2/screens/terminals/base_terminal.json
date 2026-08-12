@@ -92,6 +92,9 @@
     },
     "wideFluidFilter": {
       "left": 104, "top": 4, "width": 22, "height": 12
+    },
+    "wideOtherFilter": {
+      "left": 129, "top": 4, "width": 22, "height": 12
     }
   }
 }

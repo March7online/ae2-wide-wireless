@@ -56,9 +56,9 @@
       "top": 0
     },
     "search": {
-      "left": 94,
+      "left": 119,
       "top": 4,
-      "width": 75,
+      "width": 50,
       "height": 12
     },
     "wideItemFilter": {
@@ -69,6 +69,12 @@
     },
     "wideFluidFilter": {
       "left": 69,
+      "top": 4,
+      "width": 22,
+      "height": 12
+    },
+    "wideOtherFilter": {
+      "left": 94,
       "top": 4,
       "width": 22,
       "height": 12

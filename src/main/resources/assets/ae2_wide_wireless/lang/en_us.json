@@ -4,6 +4,8 @@
   "gui.ae2_wide_wireless.item_filter.hint": "Click again to show all key types",
   "gui.ae2_wide_wireless.fluid_filter": "Show fluids only",
   "gui.ae2_wide_wireless.fluid_filter.hint": "Click again to show all key types",
+  "gui.ae2_wide_wireless.other_filter": "Show other types only",
+  "gui.ae2_wide_wireless.other_filter.hint": "Includes chemicals, mana, and other ME key types; click again to show all key types",
   "gui.ae2_wide_wireless.width_toggle": "Toggle terminal width",
   "gui.ae2_wide_wireless.jei_target": "JEI recipe target",
   "gui.ae2_wide_wireless.jei_target.manual": "Current: crafting area (pull ingredients from the ME network/inventory)",

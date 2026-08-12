@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import appeng.api.stacks.AEKeyType;
+import appeng.api.stacks.AEKeyTypes;
 import appeng.client.gui.AEBaseScreen;
 import appeng.client.gui.Icon;
 import appeng.client.gui.me.common.MEStorageScreen;
@@ -46,6 +47,8 @@ public abstract class MEStorageScreenMixin extends AEBaseScreen<MEStorageMenu> {
     @Unique
     private TypeFilterSwitchButton ae2Wide$fluidFilterButton;
     @Unique
+    private TypeFilterSwitchButton ae2Wide$otherFilterButton;
+    @Unique
     private IconButton ae2Wide$widthButton;
     protected MEStorageScreenMixin(MEStorageMenu menu, Inventory playerInventory,
             Component title, ScreenStyle style) {
@@ -66,6 +69,9 @@ public abstract class MEStorageScreenMixin extends AEBaseScreen<MEStorageMenu> {
                 "gui.ae2_wide_wireless.fluid_filter.hint",
                 AEKeyType.fluids());
         widgets.add("wideFluidFilter", ae2Wide$fluidFilterButton);
+
+        ae2Wide$otherFilterButton = ae2Wide$createOtherFilterButton();
+        widgets.add("wideOtherFilter", ae2Wide$otherFilterButton);
 
         // The rewritten universal terminal keeps direct item/fluid filtering,
         // but its fixed dual workspace must not receive a width switch.
@@ -198,6 +204,17 @@ public abstract class MEStorageScreenMixin extends AEBaseScreen<MEStorageMenu> {
     }
 
     @Unique
+    private TypeFilterSwitchButton ae2Wide$createOtherFilterButton() {
+        var tooltip = List.<Component>of(
+                Component.translatable("gui.ae2_wide_wireless.other_filter"),
+                Component.translatable("gui.ae2_wide_wireless.other_filter.hint"));
+        return new TypeFilterSwitchButton(
+                button -> ae2Wide$selectOtherTypesExclusive(
+                        !ae2Wide$isOnlyOtherEnabled(menu.getClientKeyTypeSelection())),
+                tooltip);
+    }
+
+    @Unique
     private void ae2Wide$selectExclusiveType(AEKeyType target, boolean enabled) {
         var selection = menu.getClientKeyTypeSelection();
         if (!selection.keyTypes().containsKey(target)) {
@@ -221,6 +238,31 @@ public abstract class MEStorageScreenMixin extends AEBaseScreen<MEStorageMenu> {
         repo.updateView();
     }
 
+    @Unique
+    private void ae2Wide$selectOtherTypesExclusive(boolean enabled) {
+        var selection = menu.getClientKeyTypeSelection();
+        Set<AEKeyType> otherTypes = ae2Wide$getOtherTypes(selection.keyTypes().keySet());
+        if (otherTypes.isEmpty()) {
+            return;
+        }
+
+        Set<AEKeyType> desired = enabled
+                ? otherTypes
+                : new HashSet<>(selection.keyTypes().keySet());
+
+        for (var keyType : desired) {
+            menu.selectKeyType(keyType, true);
+        }
+        for (var keyType : new ArrayList<>(selection.enabledSet())) {
+            if (!desired.contains(keyType)) {
+                menu.selectKeyType(keyType, false);
+            }
+        }
+
+        ae2Wide$syncFilterButtons();
+        repo.updateView();
+    }
+
     @Inject(method = "updateBeforeRender", at = @At("RETURN"))
     private void ae2Wide$updateFilterButtons(CallbackInfo ci) {
         ae2Wide$syncFilterButtons();
@@ -228,18 +270,41 @@ public abstract class MEStorageScreenMixin extends AEBaseScreen<MEStorageMenu> {
 
     @Unique
     private void ae2Wide$syncFilterButtons() {
-        if (ae2Wide$itemFilterButton == null || ae2Wide$fluidFilterButton == null) {
+        if (ae2Wide$itemFilterButton == null
+                || ae2Wide$fluidFilterButton == null
+                || ae2Wide$otherFilterButton == null) {
             return;
         }
         var selection = menu.getClientKeyTypeSelection();
+        boolean hasOtherTypes = !ae2Wide$getOtherTypes(selection.keyTypes().keySet()).isEmpty();
         ae2Wide$itemFilterButton.setVisibility(selection.keyTypes().containsKey(AEKeyType.items()));
         ae2Wide$fluidFilterButton.setVisibility(selection.keyTypes().containsKey(AEKeyType.fluids()));
+        ae2Wide$otherFilterButton.setVisibility(hasOtherTypes);
         ae2Wide$itemFilterButton.setChecked(ae2Wide$isOnlyEnabled(selection.enabledSet(), AEKeyType.items()));
         ae2Wide$fluidFilterButton.setChecked(ae2Wide$isOnlyEnabled(selection.enabledSet(), AEKeyType.fluids()));
+        ae2Wide$otherFilterButton.setChecked(hasOtherTypes && ae2Wide$isOnlyOtherEnabled(selection));
     }
 
     @Unique
     private static boolean ae2Wide$isOnlyEnabled(List<AEKeyType> enabled, AEKeyType target) {
         return enabled.size() == 1 && enabled.contains(target);
+    }
+
+    @Unique
+    private static Set<AEKeyType> ae2Wide$getOtherTypes(Set<AEKeyType> availableTypes) {
+        Set<AEKeyType> otherTypes = new HashSet<>(AEKeyTypes.getAll());
+        otherTypes.retainAll(availableTypes);
+        otherTypes.remove(AEKeyType.items());
+        otherTypes.remove(AEKeyType.fluids());
+        return otherTypes;
+    }
+
+    @Unique
+    private static boolean ae2Wide$isOnlyOtherEnabled(
+            appeng.menu.interfaces.KeyTypeSelectionMenu.SyncedKeyTypes selection) {
+        Set<AEKeyType> otherTypes = ae2Wide$getOtherTypes(selection.keyTypes().keySet());
+        return !otherTypes.isEmpty()
+                && selection.enabledSet().size() == otherTypes.size()
+                && otherTypes.containsAll(selection.enabledSet());
     }
 }

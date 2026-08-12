@@ -4,6 +4,8 @@
   "gui.ae2_wide_wireless.item_filter.hint": "\u518d\u6b21\u70b9\u51fb\u6062\u590d\u663e\u793a\u5168\u90e8\u7c7b\u578b",
   "gui.ae2_wide_wireless.fluid_filter": "\u4ec5\u663e\u793a\u6d41\u4f53",
   "gui.ae2_wide_wireless.fluid_filter.hint": "\u518d\u6b21\u70b9\u51fb\u6062\u590d\u663e\u793a\u5168\u90e8\u7c7b\u578b",
+  "gui.ae2_wide_wireless.other_filter": "\u4ec5\u663e\u793a\u5176\u4ed6",
+  "gui.ae2_wide_wireless.other_filter.hint": "\u5305\u542b\u5316\u5b66\u54c1\u3001\u9b54\u6e90\u7b49 ME \u7c7b\u578b\uff1b\u518d\u6b21\u70b9\u51fb\u6062\u590d\u663e\u793a\u5168\u90e8\u7c7b\u578b",
   "gui.ae2_wide_wireless.width_toggle": "\u5207\u6362\u7ec8\u7aef\u5bbd\u7a84",
   "gui.ae2_wide_wireless.jei_target": "JEI \u62c9\u53d6\u76ee\u6807",
   "gui.ae2_wide_wireless.jei_target.manual": "\u5f53\u524d\uff1a\u5408\u6210\u533a\uff08\u4ece ME \u7f51\u7edc/\u80cc\u5305\u53d6\u51fa\u6750\u6599\uff09",
